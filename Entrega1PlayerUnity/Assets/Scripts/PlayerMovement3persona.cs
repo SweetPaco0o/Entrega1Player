@@ -5,11 +5,11 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
-public class PlayerMOvement3persona : MonoBehaviour
+public class PlayerMovement3persona : MonoBehaviour
 {
-    public float Speed;
-    public float JumpSpeed = 100;
-    public float SmoothRotation = 10;
+    public float Speed = 10f;
+    public float JumpSpeed = 1f;
+    public float SmoothRotation = 0.01f;
 
     public Transform GroundChecker;
     public float groundSphereRadius = 0.1f;
@@ -39,6 +39,7 @@ public class PlayerMOvement3persona : MonoBehaviour
 
         Vector3 localInput = transform.right * _inputController.Input.x
             + transform.forward * _inputController.Input.y;
+        
         float smoothy = 1; 
         if (!IsGrounded())
         {
