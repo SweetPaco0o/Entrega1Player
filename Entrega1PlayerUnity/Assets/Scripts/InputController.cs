@@ -13,6 +13,8 @@ public class InputController : MonoBehaviour
     private bool _jumped;
     
     public bool Jumped { get { return _jumped; } }
+
+
     private void LateUpdate()
     {
         _jumped = false;

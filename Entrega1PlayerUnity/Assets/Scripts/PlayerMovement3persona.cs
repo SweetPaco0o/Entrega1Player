@@ -61,7 +61,7 @@ public class PlayerMovement3persona : MonoBehaviour
         {
             var currentLook = transform.position + transform.forward;
             var LookPointTarget = transform.position + new Vector3(velocity.x, 0, velocity.z);
-            var LookPoint = Vector3.Lerp(currentLook, LookPointTarget, SmoothRotation);
+            var LookPoint = Vector3.Lerp(currentLook, LookPointTarget, SmoothRotation * Time.deltaTime);
             transform.LookAt(LookPoint);
         }
     }
