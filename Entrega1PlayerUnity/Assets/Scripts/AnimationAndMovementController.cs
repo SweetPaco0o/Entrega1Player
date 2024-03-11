@@ -14,6 +14,7 @@ public class AnimationAndMovementController : MonoBehaviour
     // variables to sore optimzed parameter IDs  
     int isWalkingHash;
     int isRunningHash;
+    int isJummpingHash;
 
     //vairables to store player movement
     Vector2 currentMovementInput;
@@ -25,7 +26,7 @@ public class AnimationAndMovementController : MonoBehaviour
     //constants
     float rotationFactorPerFrame = 8f;
     public float Speed = 10f;
-    public float WalkingSpeed = 3f;
+    public float WalkingSpeed = 4f;
 
     //gravity
     float groundedGravity = -.05f;
@@ -34,9 +35,10 @@ public class AnimationAndMovementController : MonoBehaviour
     //jumping variables
     bool isJumpPressed = false;
     float initialJumpVelocity;
-    float maxJumpHeight = 1f;
+    public float maxJumpHeight = 4f;
     float maxJumpTime = 0.5f;
-    bool isJummping = false;
+    bool isJumping = false;
+    bool isJumpAnimating = false;
 
     void Awake()
     {
@@ -48,6 +50,7 @@ public class AnimationAndMovementController : MonoBehaviour
         //set hash parameters
         isWalkingHash = Animator.StringToHash("isWalking");
         isRunningHash = Animator.StringToHash("isRunning");
+        isJummpingHash = Animator.StringToHash("isJumping");
 
         //callbacks
         playerInput.Gameplay.Move.started += onMovementInput;
@@ -68,12 +71,14 @@ public class AnimationAndMovementController : MonoBehaviour
     }
     void handleJump()
     {
-        if(!isJummping && characterController.isGrounded && isJumpPressed){
-            isJummping = true;
+        if(!isJumping && characterController.isGrounded && isJumpPressed){
+            animator.SetBool(isJummpingHash, true);
+            isJumpAnimating = true;
+            isJumping = true;
             currentMovement.y = initialJumpVelocity * .5f;
             currentRunMovement.y = initialJumpVelocity * .5f;
-        } else if (!isJumpPressed && isJummping && characterController.isGrounded){
-            isJummping = false;
+        } else if (!isJumpPressed && isJumping && characterController.isGrounded){
+            isJumping = false;
         }
     }
     void onJump(InputAction.CallbackContext context)
@@ -130,9 +135,14 @@ public class AnimationAndMovementController : MonoBehaviour
     void handleGravity()
     {
         if(characterController.isGrounded){
+            if(isJumpAnimating){
+                animator.SetBool(isJummpingHash, false);
+                isJumpAnimating = false;
+            }
             currentMovement.y = groundedGravity;
             currentRunMovement.y = groundedGravity;
-        } else{
+        }
+        else{
             float previousYVelocity = currentMovement.y;
             float newYVelocity = currentMovement.y + (gravity * Time.deltaTime);
             float nextYVelocity = (previousYVelocity + newYVelocity) * .5f;
