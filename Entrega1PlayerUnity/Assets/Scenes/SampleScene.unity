@@ -321,7 +321,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 69102652}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.38268352, y: 0.000000027533757, z: -0.000000011404858, w: 0.9238795}
+  m_LocalRotation: {x: 0.38268343, y: -0.000000022481213, z: 0.000000009312022, w: 0.92387956}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -490,7 +490,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 321188687}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3046432, y: 0.00000004014346, z: -0.00000001283975, w: 0.95246655}
+  m_LocalRotation: {x: 0.30464315, y: 0.00000003664581, z: -0.000000011721035, w: 0.9524666}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -585,8 +585,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.29123122, y: -0.000000032921058, z: 0.000000010022071, w: 0.9566527}
-  m_LocalPosition: {x: 1.5999999, y: 19.970001, z: -42.9}
+  m_LocalRotation: {x: 0.2912312, y: 0.00000001646053, z: -0.000000005011035, w: 0.9566527}
+  m_LocalPosition: {x: 1.5785642, y: 22.339573, z: -39.522358}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -927,6 +927,7 @@ GameObject:
   - component: {fileID: 499310675}
   - component: {fileID: 499310674}
   - component: {fileID: 499310677}
+  - component: {fileID: 499310678}
   m_Layer: 0
   m_Name: Pendulo3
   m_TagString: Untagged
@@ -1009,7 +1010,7 @@ Animator:
   m_GameObject: {fileID: 499310673}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4bfd006dbc608f74f9eb5da69895e1a3, type: 2}
+  m_Controller: {fileID: 9100000, guid: f24f6e1f2b192634da195f81ca20685c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1020,6 +1021,33 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!54 &499310678
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 499310673}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &586369721
 GameObject:
   m_ObjectHideFlags: 0
@@ -1033,6 +1061,7 @@ GameObject:
   - component: {fileID: 586369723}
   - component: {fileID: 586369726}
   - component: {fileID: 586369727}
+  - component: {fileID: 586369728}
   m_Layer: 0
   m_Name: Pendulo1
   m_TagString: Untagged
@@ -1117,11 +1146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bdc89feca0ef224b86a53230e82a845, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _start: {x: 0, y: 0, z: 0, w: 0}
-  _end: {x: 0, y: 0, z: 0, w: 0}
-  _angle: 0
-  _speed: 2
-  _startTime: 0
 --- !u!95 &586369727
 Animator:
   serializedVersion: 5
@@ -1143,6 +1167,33 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!54 &586369728
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586369721}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &749770599
 GameObject:
   m_ObjectHideFlags: 0
@@ -1202,17 +1253,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 6911e7a7b46233c4faf0302f2a03a469,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.5214357
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6911e7a7b46233c4faf0302f2a03a469,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.2695723
+      value: -1.9
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6911e7a7b46233c4faf0302f2a03a469,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.477642
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6911e7a7b46233c4faf0302f2a03a469,
         type: 3}
@@ -1577,7 +1628,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1177781634}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.29123122, y: -0.000000016460529, z: 0.0000000050110347, w: 0.9566527}
+  m_LocalRotation: {x: 0.2912312, y: 0.000000016460532, z: -0.0000000050110343, w: 0.95665276}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1597,6 +1648,7 @@ GameObject:
   - component: {fileID: 1282226154}
   - component: {fileID: 1282226153}
   - component: {fileID: 1282226156}
+  - component: {fileID: 1282226157}
   m_Layer: 0
   m_Name: Pendulo2
   m_TagString: Untagged
@@ -1690,6 +1742,33 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!54 &1282226157
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1282226152}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!64 &1389527774
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1972,7 +2051,7 @@ Transform:
   m_GameObject: {fileID: 1823818481}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5999999, y: 19.970001, z: -42.9}
+  m_LocalPosition: {x: 1.5785642, y: 22.339573, z: -39.522358}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2108,7 +2187,7 @@ Transform:
   m_GameObject: {fileID: 2143596769}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071067, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: -24.83, y: 6.4, z: 26.6}
+  m_LocalPosition: {x: -24.66, y: 6.4, z: 26.6}
   m_LocalScale: {x: 2.1052067, y: 2.1052063, z: 2.1052063}
   m_ConstrainProportionsScale: 0
   m_Children:
