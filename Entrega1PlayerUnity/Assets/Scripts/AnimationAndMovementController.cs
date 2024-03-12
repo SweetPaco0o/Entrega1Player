@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -27,6 +28,14 @@ public class AnimationAndMovementController : MonoBehaviour
     float rotationFactorPerFrame = 8f;
     public float Speed = 10f;
     public float WalkingSpeed = 4f;
+
+    //GroundChecker
+    public Transform GroundChecker;
+    public float groundSphereRadius = 2f;
+
+    //death and slow detection
+    public LayerMask WhatIsDeath;
+    public LayerMask WhatIsSlow;
 
     //gravity
     float groundedGravity = -.05f;
@@ -163,7 +172,31 @@ public class AnimationAndMovementController : MonoBehaviour
 
         handleGravity();
         handleJump();
+
+        if (IsDeath())
+        {
+            Speed = 1000f;
+        }
+        if (IsSlow())
+        {
+            Speed = Speed * 0.5f;
+        }
     }
+
+    private bool IsSlow()
+    {
+        return Physics.CheckSphere(GroundChecker.position,
+            groundSphereRadius,
+            WhatIsSlow);
+    }
+
+    private bool IsDeath()
+    {
+        return Physics.CheckSphere(GroundChecker.position,
+            groundSphereRadius,
+            WhatIsDeath);
+    }
+
     void OnEnable()
     {
         playerInput.Gameplay.Enable();
