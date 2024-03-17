@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,7 @@ public class PlayerMove : MonoBehaviour
     public Transform groundCheck;
     public float groundDistance = 0.3f;
     public LayerMask groundMask;
+    public LayerMask WhatIsSlow;
 
     Vector3 velocity;
     bool isGrounded;
@@ -48,6 +50,11 @@ public class PlayerMove : MonoBehaviour
         if(isGrounded && velocity.y<0)
         {
             velocity.y = -2f;
+        }
+
+        if (IsSlow())
+        {
+            speed = 1f;
         }
 
         float x = Input.GetAxis("Horizontal");
@@ -95,5 +102,10 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
-    
+    private bool IsSlow()
+    {
+        return Physics.CheckSphere(groundCheck.position,
+            groundDistance,
+            WhatIsSlow);
+    }
 }

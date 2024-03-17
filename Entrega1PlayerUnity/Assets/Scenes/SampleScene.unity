@@ -2037,7 +2037,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1055337009
 MonoBehaviour:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -2049,7 +2049,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!114 &1055337010
 MonoBehaviour:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -2061,7 +2061,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!114 &1055337011
 MonoBehaviour:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -2881,6 +2881,9 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 8
+  WhatIsSlow:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!114 &1767844706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6225,7 +6228,7 @@ GameObject:
   - component: {fileID: 6697621763075434728}
   - component: {fileID: 882129737653331967}
   - component: {fileID: 6697621763075434729}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Troncos_slower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
