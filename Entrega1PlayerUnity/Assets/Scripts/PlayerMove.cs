@@ -16,6 +16,7 @@ public class PlayerMove : MonoBehaviour
     public float groundDistance = 0.3f;
     public LayerMask groundMask;
     public LayerMask WhatIsSlow;
+    public LayerMask WhatIsMovingPlatform;
 
     Vector3 velocity;
     bool isGrounded;
@@ -55,6 +56,10 @@ public class PlayerMove : MonoBehaviour
         if (IsSlow())
         {
             speed = 1f;
+        }
+        if (IsMovingPlatform())
+        {
+            speed = 100f;
         }
 
         float x = Input.GetAxis("Horizontal");
@@ -100,6 +105,13 @@ public class PlayerMove : MonoBehaviour
             speed = defaultSpeed;
             animator.SetBool(isRunningHash, false);
         }
+    }
+
+    private bool IsMovingPlatform()
+    {
+        return Physics.CheckSphere(groundCheck.position,
+            groundDistance,
+            WhatIsMovingPlatform);
     }
 
     private bool IsSlow()
