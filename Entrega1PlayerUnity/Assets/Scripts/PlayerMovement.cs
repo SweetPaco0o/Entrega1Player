@@ -1,18 +1,18 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
-public class PlayerMovement3persona : MonoBehaviour
+
+public class PlayerMovement : MonoBehaviour
 {
     public float Speed = 10f;
     public float JumpSpeed = 1f;
     public float SmoothRotation = 0.01f;
 
     public Transform GroundChecker;
-    public float groundSphereRadius = 0.1f;
+    public float groundSphereRadius= 0.1f;
 
     public LayerMask WhatIsGround;
 
@@ -20,6 +20,7 @@ public class PlayerMovement3persona : MonoBehaviour
 
     CharacterController _characterController;
     InputController _inputController;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,18 +38,16 @@ public class PlayerMovement3persona : MonoBehaviour
     {
         Vector3 velocity = _lastvelocity;
 
-        Vector3 localInput = transform.right * _inputController.Input.x
-            + transform.forward * _inputController.Input.y;
-        
-        float smoothy = 1; 
+        Vector3 localInput = transform.right * _inputController.InputMove.x
+            + transform.forward * _inputController.InputMove.y;
+
+        float smoothy = 1;
         if (!IsGrounded())
-        {
             smoothy = 0.01f;
-        }
+
         velocity.x = Mathf.Lerp(velocity.x, localInput.x * Speed, smoothy);
         velocity.y = GetGravity();
         velocity.z = Mathf.Lerp(velocity.z, localInput.z * Speed, smoothy);
-
 
         if (ShouldJump())
         {
@@ -57,12 +56,13 @@ public class PlayerMovement3persona : MonoBehaviour
         _lastvelocity = velocity;
 
         _characterController.Move(velocity * Time.deltaTime);
+
         if (velocity.magnitude > 0)
         {
             var currentLook = transform.position + transform.forward;
-            var LookPointTarget = transform.position + new Vector3(velocity.x, 0, velocity.z);
-            var LookPoint = Vector3.Lerp(currentLook, LookPointTarget, SmoothRotation * Time.deltaTime);
-            transform.LookAt(LookPoint);
+            var lookPointTarget = transform.position + new Vector3(velocity.x, 0, velocity.z);
+            var lookPoint = Vector3.Lerp(currentLook, lookPointTarget, SmoothRotation * Time.deltaTime);
+            transform.LookAt(lookPoint);
         }
     }
 
@@ -73,7 +73,8 @@ public class PlayerMovement3persona : MonoBehaviour
 
     private bool IsGrounded()
     {
-        return Physics.CheckSphere(GroundChecker.position,groundSphereRadius, WhatIsGround);
+        return Physics.CheckSphere(
+            GroundChecker.position, groundSphereRadius, WhatIsGround);
     }
 
     private float GetGravity()

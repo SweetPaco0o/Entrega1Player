@@ -492,7 +492,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &184495262
 MonoBehaviour:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -504,7 +504,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!114 &184495263
 MonoBehaviour:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -516,7 +516,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!114 &184495264
 MonoBehaviour:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -1935,11 +1935,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6911e7a7b46233c4faf0302f2a03a469,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1767844704}
+      addedObject: {fileID: 1767844709}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6911e7a7b46233c4faf0302f2a03a469,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1767844706}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6911e7a7b46233c4faf0302f2a03a469,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1767844711}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6911e7a7b46233c4faf0302f2a03a469,
         type: 3}
       insertIndex: -1
@@ -3140,32 +3144,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &1767844704
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1767844688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edeed90021c6ed94483368b905627ebd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 1767844699}
-  speed: 7
-  defaultSpeed: 7
-  increasedSpeed: 14
-  gravity: -30
-  jumpHeight: 3
-  groundCheck: {fileID: 1615135222}
-  groundDistance: 0.3
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 8
-  WhatIsSlow:
-    serializedVersion: 2
-    m_Bits: 128
 --- !u!114 &1767844706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3173,7 +3151,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1767844688}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
@@ -3191,7 +3169,59 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: abeb699d-a0cc-4622-b28a-01bd16d04606
+    m_ActionName: Gameplay/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 500022d3-b49b-4e49-8b6f-2b2471aa063d
+    m_ActionName: Gameplay/Run[/Keyboard/leftShift]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c4fcd742-f928-417f-bd10-5b09f6097b8f
+    m_ActionName: Gameplay/Jump[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 253c7849-759f-4b8c-85ed-a7e4af256cd2
+    m_ActionName: Gameplay/Restart[/Keyboard/r]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5bf74905-3fa1-42d1-9058-65fb13dd7c60
+    m_ActionName: Gameplay/Interact[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d34ed0cc-f0a8-4f75-bed6-d8a104e9281e
+    m_ActionName: Gameplay/Camera[/Keyboard/c]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 05f353c3-3748-4d1d-9309-6b3622daeb8a
+    m_ActionName: Gameplay/Zoom[/Keyboard/tab]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5635664c-f657-42b7-92a9-e8178bedec2b
+    m_ActionName: Gameplay/Pause[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1d278d31-1a85-4896-ae87-1c218afc9841
+    m_ActionName: Menu/ReturnToGame[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4dddb115-1625-4962-b806-6eb999db4a1f
+    m_ActionName: Menu/Interact[/Mouse/press]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e2cf2af2-4128-46b2-8ba0-fd2f7c2c044f
+    m_ActionName: Menu/MoveInMenu[/Mouse/delta/up,/Mouse/delta/down,/Mouse/delta/left,/Mouse/delta/right]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b466c435-dab2-4937-b4bc-f529b8c9d11a
+    m_ActionName: ClimbRope/ClimbRope[/Keyboard/w,/Keyboard/s]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2b00f91c-d266-45b3-a79a-691eab48cf72
+    m_ActionName: ClimbRope/LetGo[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
@@ -3210,6 +3240,46 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   threshold: 1
+--- !u!114 &1767844709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767844688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dd0d5092a9818a4997ff4b1be180fba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1767844711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767844688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edeed90021c6ed94483368b905627ebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 7
+  defaultSpeed: 7
+  increasedSpeed: 14
+  gravity: -30
+  jumpHeight: 3
+  groundCheck: {fileID: 1615135222}
+  groundDistance: 0.3
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 8
+  WhatIsSlow:
+    serializedVersion: 2
+    m_Bits: 128
+  WhatIsMovingPlatform:
+    serializedVersion: 2
+    m_Bits: 1028
 --- !u!1 &1810815990
 GameObject:
   m_ObjectHideFlags: 0
@@ -5801,7 +5871,7 @@ GameObject:
   - component: {fileID: 1431928628232622366}
   - component: {fileID: 8542164414276743924}
   - component: {fileID: 8542164414276743925}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Moving_platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}

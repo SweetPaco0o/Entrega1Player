@@ -3,10 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(InputController))]
+
 public class PlayerMove : MonoBehaviour
 {
     
-    public CharacterController controller;
+    CharacterController _characterController;
+    InputController _inputController;
     public float speed = 7f;
     public float defaultSpeed = 7f;
     public float increasedSpeed = 14f;
@@ -18,7 +22,6 @@ public class PlayerMove : MonoBehaviour
     public LayerMask WhatIsSlow;
     public LayerMask WhatIsMovingPlatform;
 
-    Vector3 velocity;
     bool isGrounded;
 
     int isWalkingHash;
@@ -29,6 +32,8 @@ public class PlayerMove : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        _characterController = GetComponent<CharacterController>();
+        _inputController = GetComponent<InputController>();
 
         isWalkingHash = Animator.StringToHash("isWalking");
         isRunningHash = Animator.StringToHash("isRunning");
@@ -46,10 +51,16 @@ public class PlayerMove : MonoBehaviour
 
     private void Move()
     {
+        Vector3 velocity = Vector3.zero;
+        Vector3 move = transform.right * _inputController.InputMove.x + transform.forward * _inputController.InputMove.y;
+
+        _characterController.Move(move * speed * Time.deltaTime);
+
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         if(isGrounded && velocity.y<0)
         {
+            Debug.Log("HOLAAA");
             velocity.y = -2f;
         }
 
@@ -62,15 +73,9 @@ public class PlayerMove : MonoBehaviour
             speed = 100f;
         }
 
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
-
-        Vector3 move = transform.right * x + transform.forward * z;
-
-        controller.Move(move * speed * Time.deltaTime);
-
-        if (x != 0 || z != 0)
+        if (_inputController.InputMove.x != 0 || _inputController.InputMove.y != 0)
         {
+            Debug.Log("kansdaksdkaskd");
             animator.SetBool(isWalkingHash, true);
         }
         else 
@@ -78,10 +83,11 @@ public class PlayerMove : MonoBehaviour
             animator.SetBool(isWalkingHash, false);
         }
         
-        if(Input.GetButtonDown("Jump") && isGrounded)
+        if(_inputController.Jumped && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             animator.SetBool(isJumpingHash, true);
+            Debug.Log("salta salta?");
         }
         else 
         {
@@ -90,9 +96,9 @@ public class PlayerMove : MonoBehaviour
 
         velocity.y += gravity * Time.deltaTime;
 
-        controller.Move(velocity * Time.deltaTime);
+        _characterController.Move(velocity * Time.deltaTime);
 
-         if (Input.GetButton("Run") && (x != 0 || z != 0))
+         if (_inputController.Run && (_inputController.InputMove.x != 0 || _inputController.InputMove.y != 0))
         {
             if (speed == defaultSpeed)
             {
@@ -106,7 +112,6 @@ public class PlayerMove : MonoBehaviour
             animator.SetBool(isRunningHash, false);
         }
     }
-
     private bool IsMovingPlatform()
     {
         return Physics.CheckSphere(groundCheck.position,
