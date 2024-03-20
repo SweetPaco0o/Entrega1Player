@@ -9,10 +9,9 @@ public class InputController : MonoBehaviour
     public Vector2 InputMove { get { return _inputMovement; } }
 
     private bool _jumped;
-
     public bool Jumped { get { return _jumped; } }
+    
     private bool _run;
-
     public bool Run { get { return _run; } }
 
 
@@ -24,15 +23,16 @@ public class InputController : MonoBehaviour
     private void OnMove(InputValue input)
     {
         _inputMovement = input.Get<Vector2>();
+         Debug.Log("Move");
     }
 
-    void OnJump()
+    private void OnJump()
     {
         _jumped = true;
-        Debug.Log("PROBAAAAANDO");
+        Debug.Log("Jump");
     }
 
-    void OnRun()
+    private void OnRun()
     {
         _run = true;
     }
