@@ -18,7 +18,6 @@ public class InputController : MonoBehaviour
     private void LateUpdate()
     {
         _jumped = false;
-        _run = false;
     }
     private void OnMove(InputValue input)
     {
@@ -32,13 +31,13 @@ public class InputController : MonoBehaviour
         Debug.Log("Jump");
     }
 
-    private void OnRun()
+    /*private void OnRun()
     {
         _run = true;
         Debug.Log("Run");
-    }
+    }*/
 
-    /*private void OnRunStart()
+    private void OnRunStart()
     {
         _run = true;
         Debug.Log("RunStart");
@@ -47,5 +46,5 @@ public class InputController : MonoBehaviour
     {
         _run = false;
         Debug.Log("RunEnd");
-    }*/
+    }
 }

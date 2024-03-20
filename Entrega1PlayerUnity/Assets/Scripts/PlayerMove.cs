@@ -76,7 +76,6 @@ public class PlayerMove : MonoBehaviour
 
         if (_inputController.InputMove.x != 0 || _inputController.InputMove.y != 0)
         {
-            Debug.Log("kansdaksdkaskd");
             animator.SetBool(isWalkingHash, true);
         }
         else 
@@ -99,19 +98,20 @@ public class PlayerMove : MonoBehaviour
 
         _characterController.Move(velocity * Time.deltaTime);
 
-        // if (_inputController.Run && (_inputController.InputMove.x != 0 || _inputController.InputMove.y != 0))
-        //{
-        //    if (speed == defaultSpeed)
-        //    {
-        //        speed = increasedSpeed; 
-        //        animator.SetBool(isRunningHash, true);
-        //    }
-        //}
-        //else
-        //{
-        //    speed = defaultSpeed;
-        //    animator.SetBool(isRunningHash, false);
-        //}
+         if (_inputController.Run && (_inputController.InputMove.x != 0 || _inputController.InputMove.y != 0))
+        {
+            if (speed == defaultSpeed)
+            {
+                speed = increasedSpeed; 
+                animator.SetBool(isRunningHash, true);
+            }
+        }
+        else
+        {
+            speed = defaultSpeed;
+            animator.SetBool(isRunningHash, false);
+        }
+        
     }
     private bool IsMovingPlatform()
     {
