@@ -15,9 +15,27 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Run",
+                    "name": "RunEnd",
                     "type": "Button",
                     "id": "500022d3-b49b-4e49-8b6f-2b2471aa063d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=1)",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RunStart",
+                    "type": "Button",
+                    "id": "55d42250-0934-43c9-b458-b92c9d974bad",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Run1",
+                    "type": "Button",
+                    "id": "5f12da8b-d035-4fe7-a4a7-e289ffc2950f",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -284,7 +302,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Run",
+                    "action": "RunEnd",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -295,7 +313,51 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Run",
+                    "action": "RunEnd",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c790e9c8-850c-4adf-8ba3-b47f1a76ee6e",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Run1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "348cc61a-cd0e-4303-bc83-c6ec3e637288",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Run1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a8c40bcf-822e-4aa6-ae7b-9b781613cd23",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "RunStart",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b0c8eab8-462f-4a1f-8b3b-3a73f551049b",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "RunStart",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

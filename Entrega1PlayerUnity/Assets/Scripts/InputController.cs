@@ -32,8 +32,12 @@ public class InputController : MonoBehaviour
         Debug.Log("Jump");
     }
 
-    private void OnRun()
+    private void OnRunStart()
     {
         _run = true;
+    }
+    private void OnRunEnd()
+    {
+        _run = false;
     }
 }

@@ -54,7 +54,8 @@ public class PlayerMove : MonoBehaviour
         Vector3 velocity = Vector3.zero;
         Vector3 move = transform.right * _inputController.InputMove.x + transform.forward * _inputController.InputMove.y;
 
-        _characterController.Move(move * speed * Time.deltaTime);
+        speed = _inputController.Run ? increasedSpeed : defaultSpeed;
+       // _characterController.Move(move * speed * Time.deltaTime);
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
@@ -98,19 +99,19 @@ public class PlayerMove : MonoBehaviour
 
         _characterController.Move(velocity * Time.deltaTime);
 
-         if (_inputController.Run && (_inputController.InputMove.x != 0 || _inputController.InputMove.y != 0))
-        {
-            if (speed == defaultSpeed)
-            {
-                speed = increasedSpeed; 
-                animator.SetBool(isRunningHash, true);
-            }
-        }
-        else
-        {
-            speed = defaultSpeed;
-            animator.SetBool(isRunningHash, false);
-        }
+        // if (_inputController.Run && (_inputController.InputMove.x != 0 || _inputController.InputMove.y != 0))
+        //{
+        //    if (speed == defaultSpeed)
+        //    {
+        //        speed = increasedSpeed; 
+        //        animator.SetBool(isRunningHash, true);
+        //    }
+        //}
+        //else
+        //{
+        //    speed = defaultSpeed;
+        //    animator.SetBool(isRunningHash, false);
+        //}
     }
     private bool IsMovingPlatform()
     {
