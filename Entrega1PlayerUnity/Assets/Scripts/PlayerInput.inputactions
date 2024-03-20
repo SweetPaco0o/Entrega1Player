@@ -15,15 +15,6 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "RunEnd",
-                    "type": "Button",
-                    "id": "500022d3-b49b-4e49-8b6f-2b2471aa063d",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Press(behavior=1)",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "RunStart",
                     "type": "Button",
                     "id": "55d42250-0934-43c9-b458-b92c9d974bad",
@@ -33,7 +24,16 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Run1",
+                    "name": "RunEnd",
+                    "type": "Button",
+                    "id": "500022d3-b49b-4e49-8b6f-2b2471aa063d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=1)",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Run",
                     "type": "Button",
                     "id": "5f12da8b-d035-4fe7-a4a7-e289ffc2950f",
                     "expectedControlType": "Button",
@@ -324,7 +324,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Run1",
+                    "action": "Run",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -335,7 +335,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Run1",
+                    "action": "Run",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

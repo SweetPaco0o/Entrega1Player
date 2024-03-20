@@ -7,8 +7,9 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float Speed = 10f;
-    public float JumpSpeed = 1f;
+    public float defaultSpeed = 10f;
+    public float increasedSpeed = 20f;
+    public float JumpSpeed = 4f;
     public float SmoothRotation = 0.01f;
 
     public Transform GroundChecker;
@@ -21,11 +22,23 @@ public class PlayerMovement : MonoBehaviour
     CharacterController _characterController;
     InputController _inputController;
 
+    int isWalkingHash;
+    int isRunningHash;
+    int isJumpingHash;
+    Animator animator;
+
+
     // Start is called before the first frame update
     void Start()
     {
         _characterController = GetComponent<CharacterController>();
         _inputController = GetComponent<InputController>(); 
+
+        animator = GetComponent<Animator>();
+
+        isWalkingHash = Animator.StringToHash("isWalking");
+        isRunningHash = Animator.StringToHash("isRunning");
+        isJumpingHash = Animator.StringToHash("isJumping");
     }
 
     // Update is called once per frame
@@ -42,28 +55,38 @@ public class PlayerMovement : MonoBehaviour
             + transform.forward * _inputController.InputMove.y;
 
         float smoothy = 1;
+
+        if(localInput.magnitude > 0 && IsGrounded())
+        {
+            animator.SetBool(isWalkingHash, true);
+        }
+        else{
+            animator.SetBool(isWalkingHash, false);
+        }
+
         if (!IsGrounded())
+        {
             smoothy = 0.01f;
+        }
 
-        velocity.x = Mathf.Lerp(velocity.x, localInput.x * Speed, smoothy);
+        float WalkingSpeed = _inputController.Run ?  increasedSpeed : defaultSpeed;
+        velocity.x = Mathf.Lerp(velocity.x, localInput.x * WalkingSpeed, smoothy);
         velocity.y = GetGravity();
-        velocity.z = Mathf.Lerp(velocity.z, localInput.z * Speed, smoothy);
-
+        velocity.z = Mathf.Lerp(velocity.z, localInput.z * WalkingSpeed, smoothy);   
+            
         if (ShouldJump())
         {
             velocity.y = JumpSpeed;
+            animator.SetBool(isJumpingHash, true);
+        }else{
+            animator.SetBool(isJumpingHash, false);
         }
+
         _lastvelocity = velocity;
 
         _characterController.Move(velocity * Time.deltaTime);
 
-        if (velocity.magnitude > 0)
-        {
-            var currentLook = transform.position + transform.forward;
-            var lookPointTarget = transform.position + new Vector3(velocity.x, 0, velocity.z);
-            var lookPoint = Vector3.Lerp(currentLook, lookPointTarget, SmoothRotation * Time.deltaTime);
-            transform.LookAt(lookPoint);
-        }
+        animator.SetBool(isRunningHash, _inputController.Run);
     }
 
     private bool ShouldJump()
