@@ -63,6 +63,5 @@ public class InputController : MonoBehaviour
     private void OnCamera()
     {
         _camera = true;
-        Debug.Log("Camara");
     }
 }

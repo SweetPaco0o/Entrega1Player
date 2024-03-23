@@ -39,7 +39,7 @@ public class RespawnTroncos : MonoBehaviour
     }
     else
     {
-        Debug.LogWarning("Collision with non-Player object");
+       // Debug.LogWarning("Collision with non-Player object");
     }
 }
 
