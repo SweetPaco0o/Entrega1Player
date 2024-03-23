@@ -13,11 +13,11 @@ public class RespawnTroncos : MonoBehaviour
             Debug.Log("RespawnTroncos");
             transform.position = respawnPosition1;
         }
-    }
-    else
-    {
-        Debug.LogWarning("Collision with non-Player object");
-    }
+    
+        else
+        {
+            Debug.LogWarning("Collision with non-Player object");
+        }
 }
 
 }
