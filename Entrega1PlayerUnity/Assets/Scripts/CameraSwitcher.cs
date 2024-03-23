@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class CameraSwitcher : MonoBehaviour
 {
+    InputController _inputController;
     public Camera ThirdPersonCam;
     public Camera FirstPersonCam;
 
     void Start()
     {
         ThirdPersonCam.enabled = false;
+        _inputController = GetComponent<InputController>(); 
     }
 
     void Update()
@@ -19,7 +21,7 @@ public class CameraSwitcher : MonoBehaviour
 
     void SwitchCamera()
     {
-        if (Input.GetKeyDown(KeyCode.C))
+        if (_inputController.Camera)
         {
             if (ThirdPersonCam.enabled)
             {
