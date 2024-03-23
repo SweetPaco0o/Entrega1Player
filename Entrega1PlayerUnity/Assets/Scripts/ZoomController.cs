@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ZoomController : MonoBehaviour
 {
+    InputController _inputController;
     public Camera FirstPersonCam;
     public float zoomedInFOV = 20f;
     public float defaultFOV = 80f;
@@ -15,16 +16,17 @@ public class ZoomController : MonoBehaviour
     void Start()
     {
         targetFOV = defaultFOV;
+        _inputController = GetComponent<InputController>(); 
     }
 
 
     void Update()
     {
-        Zoom();
+        ZoomAction();
     }
-    void Zoom()
+    void ZoomAction()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (_inputController.Zoom)
             {
                 isZoomed = !isZoomed;
                 targetFOV = isZoomed ? zoomedInFOV : defaultFOV;
