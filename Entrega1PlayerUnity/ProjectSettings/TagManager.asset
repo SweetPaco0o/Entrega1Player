@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Esfera
   - Tronco
+  - Death
+  - Death2
   layers:
   - Default
   - TransparentFX

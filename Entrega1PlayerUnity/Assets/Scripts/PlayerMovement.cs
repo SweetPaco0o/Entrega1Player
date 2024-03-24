@@ -17,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
     public float JumpsLeft = 0f;
     public float SmoothRotation = 0.01f;
 
+    public float gravity = -9.81f;
+
     public Transform GroundChecker;
     public float groundSphereRadius= 0.1f;
 
@@ -83,7 +85,6 @@ public class PlayerMovement : MonoBehaviour
         if (isInSlowArea)
         {
             WalkingSpeed *= slowSpeedMultiplier;
-            Debug.Log("Aplicando velocidad reducida por área Slow");
         }
 
         velocity.x = Mathf.Lerp(velocity.x, localInput.x * WalkingSpeed, smoothy);
@@ -132,7 +133,7 @@ public class PlayerMovement : MonoBehaviour
     private float GetGravity()
     {
         float currentVelocity = _lastvelocity.y;
-        currentVelocity += Physics.gravity.y * Time.deltaTime;
+        currentVelocity += gravity * Time.deltaTime;
         return currentVelocity;
     }
 
