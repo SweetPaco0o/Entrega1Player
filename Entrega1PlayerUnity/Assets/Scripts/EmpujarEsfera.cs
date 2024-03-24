@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EmpujarEsfera : MonoBehaviour
 {
-    public float fuerzaEmpuje = 100f; // Ajusta según sea necesario
+    public float fuerzaEmpuje = 5f; // Ajusta según sea necesario
 
     // Este método se llama cuando otro collider entra en el trigger de este objeto
     void OnTriggerEnter(Collider other)
@@ -10,7 +10,6 @@ public class EmpujarEsfera : MonoBehaviour
         // Verifica si el otro collider es la esfera
         if (other.CompareTag("Esfera"))
         {
-            Debug.Log("PELOTAS!");
             Rigidbody rb = other.GetComponent<Rigidbody>();
             if (rb != null)
             {
