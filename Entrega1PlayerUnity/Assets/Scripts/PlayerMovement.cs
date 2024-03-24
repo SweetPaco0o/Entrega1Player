@@ -7,6 +7,9 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public float slowSpeedMultiplier = 0.3f; // Velocidad reducida cuando pasa por objetos Slow
+    private bool isInSlowArea = false; // Indica si el jugador está en un área Slow
+
     public float defaultSpeed = 10f;
     public float increasedSpeed = 20f;
     public float JumpSpeed = 4f;
@@ -76,6 +79,13 @@ public class PlayerMovement : MonoBehaviour
         }
 
         float WalkingSpeed = _inputController.Run ?  increasedSpeed : defaultSpeed;
+
+        if (isInSlowArea)
+        {
+            WalkingSpeed *= slowSpeedMultiplier;
+            Debug.Log("Aplicando velocidad reducida por área Slow");
+        }
+
         velocity.x = Mathf.Lerp(velocity.x, localInput.x * WalkingSpeed, smoothy);
         velocity.y = GetGravity();
         velocity.z = Mathf.Lerp(velocity.z, localInput.z * WalkingSpeed, smoothy);   
@@ -124,5 +134,22 @@ public class PlayerMovement : MonoBehaviour
         float currentVelocity = _lastvelocity.y;
         currentVelocity += Physics.gravity.y * Time.deltaTime;
         return currentVelocity;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Slow"))
+        {
+            isInSlowArea = true;
+            Debug.Log("PISANDO SLOW");
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Slow"))
+        {
+            isInSlowArea = false;
+        }
     }
 }
