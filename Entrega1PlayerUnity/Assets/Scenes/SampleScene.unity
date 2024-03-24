@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028383, g: 0.22571398, b: 0.306924, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028371, g: 0.2257136, b: 0.30692342, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -14694,8 +14694,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6490625522306536084}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &4524298505376511199
-MeshCollider:
+--- !u!65 &4524298505376511199
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -14712,10 +14712,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -257278029260952120, guid: 3d5154f95bb16444591269b491a9804b, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 7.599346, y: 0.1627393, z: 2.779133}
+  m_Center: {x: -2.5909698, y: -0.00000070035463, z: 1.1940975}
 --- !u!23 &4539702727574171253
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15668,8 +15667,8 @@ Transform:
   - {fileID: 4524298505376511198}
   m_Father: {fileID: 879192852}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &6490625522306536085
-MeshCollider:
+--- !u!65 &6490625522306536085
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -15686,10 +15685,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -2746142260806068395, guid: 3d5154f95bb16444591269b491a9804b, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 19.899328, y: 7.9656477, z: 14.180326}
+  m_Center: {x: 0, y: 0.07721941, z: 0.9065937}
 --- !u!1 &6507901978531630015
 GameObject:
   m_ObjectHideFlags: 0
