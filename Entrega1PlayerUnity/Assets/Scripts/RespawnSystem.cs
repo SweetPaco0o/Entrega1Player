@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerRespawnManager : MonoBehaviour
+public class RespawnSystem : MonoBehaviour
 {
     public float threshold;
     float level2 = 50;
@@ -20,7 +20,6 @@ public class PlayerRespawnManager : MonoBehaviour
             {
                 transform.position = new Vector3(0.87f, 16.5f, 52f);
             }
-            
         }
     }
 }
