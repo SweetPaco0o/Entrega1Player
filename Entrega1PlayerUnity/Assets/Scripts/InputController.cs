@@ -19,18 +19,30 @@ public class InputController : MonoBehaviour
     private bool _camera;
     public bool Camera { get { return _camera; } }
 
+    private Vector2 _climb;
+    public Vector2 Climb { get { return _climb; } }
 
+    private bool _grabrope;
+    public bool Grabrope { get { return _grabrope; } }
+    
     private void LateUpdate()
     {
         _jumped = false;
         _zoom = false;
         _camera = false;
+        _grabrope = false;
     }
+
     private void OnMove(InputValue input)
     {
         _inputMovement = input.Get<Vector2>();
     }
 
+    private void OnClimbRope(InputValue input)
+    {
+        _climb = input.Get<Vector2>();
+    }
+    
     private void OnJump()
     {
         _jumped = true;
@@ -63,5 +75,10 @@ public class InputController : MonoBehaviour
     private void OnCamera()
     {
         _camera = true;
+    }
+
+    private void OnLetGo()
+    {
+        _grabrope = true;
     }
 }

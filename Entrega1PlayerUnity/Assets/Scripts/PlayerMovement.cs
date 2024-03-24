@@ -91,6 +91,18 @@ public class PlayerMovement : MonoBehaviour
 
         _lastvelocity = velocity;
 
+        float avoidFloorDistance = .1f;
+        float ropeGrabbDistance = 1f;
+        if (Physics.Raycast(transform.position + Vector3.up * avoidFloorDistance, localInput, out RaycastHit raycastHit, ropeGrabbDistance))
+        {
+            if (raycastHit.transform.TryGetComponent(out Rope rope))
+            {
+                velocity.x = 0f;
+                velocity.y = localInput.z * defaultSpeed;
+                velocity.z = 0f;
+            }
+        }
+
         _characterController.Move(velocity * Time.deltaTime);
 
         animator.SetBool(isRunningHash, _inputController.Run);
