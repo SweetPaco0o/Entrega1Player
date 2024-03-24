@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5385797578536325662}
   m_Layer: 0
   m_Name: tronco
-  m_TagString: Untagged
+  m_TagString: Tronco
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -148,5 +148,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19311db7e204a3746b50b6c5c1888051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawnPosition1: {x: 4.22, y: 14.63957, z: -38.2}
-  respawnPosition2: {x: 0.87, y: 16.5, z: 52}
+  checkpoint: {fileID: 0}
