@@ -2045,6 +2045,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19311db7e204a3746b50b6c5c1888051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkpoint: {fileID: 0}
 --- !u!64 &499310680
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2258,6 +2259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19311db7e204a3746b50b6c5c1888051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkpoint: {fileID: 0}
 --- !u!64 &586369730
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2683,7 +2685,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 6911e7a7b46233c4faf0302f2a03a469,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.9
+      value: 3.91
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6911e7a7b46233c4faf0302f2a03a469,
         type: 3}
@@ -2693,7 +2695,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 6911e7a7b46233c4faf0302f2a03a469,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 56.1
+      value: 42.22
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6911e7a7b46233c4faf0302f2a03a469,
         type: 3}
@@ -9809,6 +9811,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19311db7e204a3746b50b6c5c1888051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkpoint: {fileID: 0}
 --- !u!64 &1282226159
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -9971,6 +9974,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed1437bcece87c949a28ff332fcc1a17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  confetiEffect: {fileID: 0}
 --- !u!1 &1452660257
 GameObject:
   m_ObjectHideFlags: 0
@@ -10824,7 +10828,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a756fb76efd7684a9d56ed69fcb0de4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  threshold: 0
+  checkpoint: {fileID: 0}
+  checkpoint2: {fileID: 0}
 --- !u!114 &1767844709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10849,12 +10854,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c76595f2d380c64dab1f86b9fe72945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slowSpeedMultiplier: 0.3
   defaultSpeed: 10
   increasedSpeed: 20
   JumpSpeed: 7
   Jumps: 2
   JumpsLeft: 0
   SmoothRotation: 0.01
+  gravity: -9.81
+  gravityMultiplier: 2
   GroundChecker: {fileID: 1615135222}
   groundSphereRadius: 0.1
   WhatIsGround:
@@ -10925,6 +10933,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5194a908adeec842ac502c8e25e2a3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkpoint: {fileID: 0}
 --- !u!1 &1770190247
 GameObject:
   m_ObjectHideFlags: 0

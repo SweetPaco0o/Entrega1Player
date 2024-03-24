@@ -16,8 +16,11 @@ public class PlayerMovement : MonoBehaviour
     public float Jumps = 2f;
     public float JumpsLeft = 0f;
     public float SmoothRotation = 0.01f;
+    
 
     public float gravity = -9.81f;
+    public float gravityMultiplier = 2f;
+    private Vector3 moveDirection = Vector3.zero;
 
     public Transform GroundChecker;
     public float groundSphereRadius= 0.1f;
@@ -74,6 +77,12 @@ public class PlayerMovement : MonoBehaviour
         if (!IsGrounded())
         {
             smoothy = 0.01f;
+            if (moveDirection.y > 0)
+            {
+                moveDirection.y -= gravityMultiplier * Time.deltaTime;
+                _characterController.Move(moveDirection * Time.deltaTime);
+            }
+            
         }
         else
         {
