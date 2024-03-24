@@ -4547,7 +4547,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultSpeed: 10
   increasedSpeed: 20
-  JumpSpeed: 4
+  JumpSpeed: 10
+  Jumps: 2
+  JumpsLeft: 0
   SmoothRotation: 0.01
   GroundChecker: {fileID: 1615135222}
   groundSphereRadius: 0.1

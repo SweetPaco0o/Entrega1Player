@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     public float defaultSpeed = 10f;
     public float increasedSpeed = 20f;
     public float JumpSpeed = 4f;
+    public float Jumps = 2f;
+    public float JumpsLeft = 0f;
     public float SmoothRotation = 0.01f;
 
     public Transform GroundChecker;
@@ -68,6 +70,10 @@ public class PlayerMovement : MonoBehaviour
         {
             smoothy = 0.01f;
         }
+        else
+        {
+            JumpsLeft = Jumps;
+        }
 
         float WalkingSpeed = _inputController.Run ?  increasedSpeed : defaultSpeed;
         velocity.x = Mathf.Lerp(velocity.x, localInput.x * WalkingSpeed, smoothy);
@@ -77,6 +83,7 @@ public class PlayerMovement : MonoBehaviour
         if (ShouldJump())
         {
             velocity.y = JumpSpeed;
+            --JumpsLeft;
             animator.SetBool(isJumpingHash, true);
         }else{
             animator.SetBool(isJumpingHash, false);
@@ -91,7 +98,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool ShouldJump()
     {
-        return _inputController.Jumped && IsGrounded();
+        return _inputController.Jumped && (IsGrounded() || JumpsLeft>0);
     }
 
     private bool IsGrounded()
