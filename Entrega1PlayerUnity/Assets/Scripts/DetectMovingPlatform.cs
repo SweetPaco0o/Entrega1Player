@@ -10,21 +10,50 @@ public class DetectMovingPlatform : MonoBehaviour
 
     public LayerMask WhatIsMovingPlatform;
 
+    private Transform currentMovingPlatform;
+    private Vector3 platformOffset;
+
+    private CharacterController characterController;
+
+    private void Start()
+    {
+        characterController = GetComponent<CharacterController>();
+    }
+
     private void FixedUpdate()
     {
-        AttachParent();
+        UpdateParenting();
     }
-    private void AttachParent()
+
+    private void UpdateParenting()
     {
         if (IsMovingPlatform())
         {
-            Debug.Log("En contacto con Moving Platform");
+            Transform movingPlatform = GetMovingPlatform();
+            platformOffset = movingPlatform.position - transform.position;
+            currentMovingPlatform = movingPlatform;
         }
+        else
+        {
+            platformOffset = Vector3.zero;
+            currentMovingPlatform = null;
+        }
+        characterController.Move(platformOffset);
     }
 
     private bool IsMovingPlatform()
     {
         return Physics.CheckSphere(
             GroundChecker.position, groundSphereRadius, WhatIsMovingPlatform);
+    }
+
+    private Transform GetMovingPlatform()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, groundSphereRadius * 2, WhatIsMovingPlatform))
+        {
+            return hit.collider.transform;
+        }
+        return null;
     }
 }
