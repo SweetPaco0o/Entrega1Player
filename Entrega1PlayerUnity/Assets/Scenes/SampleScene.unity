@@ -9974,7 +9974,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed1437bcece87c949a28ff332fcc1a17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  confetiEffect: {fileID: 0}
+  confetiEffect: {fileID: 775119761}
 --- !u!1 &1452660257
 GameObject:
   m_ObjectHideFlags: 0
