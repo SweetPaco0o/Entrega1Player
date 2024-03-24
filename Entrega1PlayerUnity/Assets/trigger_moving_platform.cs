@@ -12,7 +12,6 @@ public class trigger_moving_platform : MonoBehaviour
         {
             Moving_platform = other.gameObject;
             Moving_platform.transform.parent = transform;
-            Debug.Log("Player is now child of platform.");
         }
     }
     private void OnTriggerExit(Collider other)
@@ -23,7 +22,6 @@ public class trigger_moving_platform : MonoBehaviour
             {
                 Moving_platform.transform.parent = null;
                 Moving_platform = null;
-                Debug.Log("Player is no longer child of platform.");
             }
         }
     }
