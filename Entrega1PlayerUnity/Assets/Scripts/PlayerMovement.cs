@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public float slowSpeedMultiplier = 0.3f; // Velocidad reducida cuando pasa por objetos Slow
     private bool isInSlowArea = false; // Indica si el jugador está en un área Slow
+    private bool isClimbingRope;
 
     public float defaultSpeed = 10f;
     public float increasedSpeed = 20f;
@@ -35,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
     int isWalkingHash;
     int isRunningHash;
     int isJumpingHash;
+    int isClimbingHash;
     Animator animator;
 
 
@@ -49,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
         isWalkingHash = Animator.StringToHash("isWalking");
         isRunningHash = Animator.StringToHash("isRunning");
         isJumpingHash = Animator.StringToHash("isJumping");
+        isClimbingHash = Animator.StringToHash("isClimbing");
     }
 
     // Update is called once per frame
@@ -111,21 +114,60 @@ public class PlayerMovement : MonoBehaviour
 
         _lastvelocity = velocity;
 
-        float avoidFloorDistance = .1f;
-        float ropeGrabbDistance = 1f;
-        if (Physics.Raycast(transform.position + Vector3.up * avoidFloorDistance, localInput, out RaycastHit raycastHit, ropeGrabbDistance))
-        {
-            if (raycastHit.transform.TryGetComponent(out Rope rope))
+        if(!isClimbingRope){
+            //Not Climbing Rope
+            float avoidFloorDistance = .1f;
+            float ropeGrabbDistance = 1f;
+            if (Physics.Raycast(transform.position + Vector3.up * avoidFloorDistance, localInput, out RaycastHit raycastHit, ropeGrabbDistance))
             {
-                velocity.x = 0f;
-                velocity.y = localInput.z * defaultSpeed;
-                velocity.z = 0f;
+                if (raycastHit.transform.TryGetComponent(out Rope rope))
+                {
+                    GrabRope();  
+                    animator.SetBool(isClimbingHash, true);
+                }
             }
+        }
+        else 
+        {
+            //Climbing the rope
+            float avoidFloorDistance = .1f;
+            float ropeGrabbDistance = 1f;
+            if (Physics.Raycast(transform.position + Vector3.up * avoidFloorDistance, localInput, out RaycastHit raycastHit, ropeGrabbDistance))
+            {
+                if (!raycastHit.transform.TryGetComponent(out Rope rope))
+                {
+                    DropRope();
+                    animator.SetBool(isClimbingHash, false);
+                }
+            }
+            else
+            {
+                DropRope();
+                animator.SetBool(isClimbingHash, false);
+            }
+        }
+        if (isClimbingRope)
+        {
+            GrabRope();
+            velocity.x = 0f;
+            velocity.y = localInput.z * defaultSpeed;
+            velocity.z = 0f;
+            //Physics.gravity.y = 0;
         }
 
         _characterController.Move(velocity * Time.deltaTime);
 
         animator.SetBool(isRunningHash, _inputController.Run);
+    }
+
+    private void GrabRope()
+    {
+        isClimbingRope = true;
+    }
+
+    private void DropRope()
+    {
+        isClimbingRope = false;
     }
 
     private bool ShouldJump()
