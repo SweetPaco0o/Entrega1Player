@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 4777080306451009428}
   - component: {fileID: 3772763588368928603}
   - component: {fileID: 4386172197901390336}
+  - component: {fileID: 2542764420590770368}
   - component: {fileID: 7731297861404583060}
-  - component: {fileID: 5385797578536325662}
   m_Layer: 0
   m_Name: tronco
   m_TagString: Tronco
@@ -101,14 +101,37 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5542264
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0.0542264, y: -3.5085786e-17, z: -0.00000011920929}
+--- !u!136 &2542764420590770368
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8533898303308538047}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
+  m_Radius: 0.72361964
+  m_Height: 2.0000005
   m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_Center: {x: -0.07003051, y: 2.1048914e-17, z: 0.01697731}
 --- !u!54 &7731297861404583060
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -136,16 +159,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5385797578536325662
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8533898303308538047}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19311db7e204a3746b50b6c5c1888051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  checkpoint: {fileID: 0}
